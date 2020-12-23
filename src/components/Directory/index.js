@@ -1,17 +1,25 @@
 import React from 'react';
 import ShopMen from "./../../assets/shopMan.jpg";
 import ShopWoman from "./../../assets/shopWoman.jpg"
+import "./styles.scss"
 
 const Directory = props => {
     return (
-    <div>
-        <div style={{
+    <div className="directory">
+        <div className="wrap">
+        <div className="item" style={{
             backgroundImage : `url(${ShopMen})`
-        }}></div>
+        }}>
+            <a href="!#">Shop Men's</a>
+        </div>
 
-<div style={{
+<div className = "item" style={{
             backgroundImage : `url(${ShopWoman})`
-        }}></div>
+        }}>
+            <a href="!#">Shop Women's</a>
+        </div>
+        </div>
+
     </div>
     
     )

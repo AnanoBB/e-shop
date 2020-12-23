@@ -3,11 +3,16 @@ html{
 }
 
 html, body {
-    height: 100%;
+   
     margin: 0 ;
     padding: 0;
 
 }
+
+html,body,#root,.App{
+    height: 100%;
+}
+
 
 body{
     font-family: 'Open Sans', sans-serif;
@@ -33,4 +38,16 @@ a{
 a, a:hover{
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+}
+
+
+
+
+.main{
+    max-width: 1450px;
+    height: calc(100% - 6.5rem);
+    width : 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+
 }
