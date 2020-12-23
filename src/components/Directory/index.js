@@ -1,6 +1,6 @@
 import React from 'react';
-import ShopMen from "./../../assets/shopMan.jpg";
-import ShopWoman from "./../../assets/shopWoman.jpg"
+import ShopMen from "./../../assets/shopMens.jpg";
+import ShopWoman from "./../../assets/shopWomens.jpg"
 import "./styles.scss"
 
 const Directory = props => {
@@ -13,7 +13,7 @@ const Directory = props => {
             <a href="!#">Shop Men's</a>
         </div>
 
-<div className = "item" style={{
+<div className ="item" style={{
             backgroundImage : `url(${ShopWoman})`
         }}>
             <a href="!#">Shop Women's</a>
