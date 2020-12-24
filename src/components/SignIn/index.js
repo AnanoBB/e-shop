@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles.scss'
 import Button from './../Forms/Button'
+import { signInWithGoogle } from './../../firebase/utils';
 
-const SignIn = props =>
+class SignIn extends Component
 {
+
+    handleSubmit = async e=>{
+        e.preventDefault();
+    }
+    render(){
     return (
         <div className='signIn'>
             <div className='wrap'>
                 <h2>LogIn</h2>
 
                 <div claaName='formWrap'>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <div className='socialSignin'>
                             <div className='row'>
-                                <Button>
+                                <Button onClick={signInWithGoogle}>
                                     Sign in with google
                                 </Button>
                             </div>
@@ -23,6 +29,7 @@ const SignIn = props =>
             </div>
         </div>
     )
+    }
 }
 
 export default SignIn;
