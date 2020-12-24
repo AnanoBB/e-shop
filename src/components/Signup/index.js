@@ -31,7 +31,7 @@ class Signup extends Component{
     }
     render(){
 
-        const {displayName} = this.state;
+        const {displayName,email,password,confirmPassword} = this.state;
         return(
             <div className='signup'>
                 <div className='wrap'>
@@ -44,6 +44,35 @@ class Signup extends Component{
                         placeholder='fullname'
                         onChange={this.handleChange}
                         />
+
+                        <FormInput 
+                        type='email'
+                        name = 'email'
+                        value ={email}
+                        placeholder='Email'
+                        onChange={this.handleChange}
+                        />
+
+                    <FormInput 
+                        type='password'
+                        name = 'password'
+                        value ={password}
+                        placeholder='Password'
+                        onChange={this.handleChange}
+                        />
+
+                    <FormInput 
+                        type='password'
+                        name = 'confirmPassword'
+                        value ={confirmPassword}
+                        placeholder='confirm password'
+                        onChange={this.handleChange}
+                        />
+
+
+                      <Button type='submit'>
+                          Register
+                      </Button>
                         
                     </form>
                 </div>
