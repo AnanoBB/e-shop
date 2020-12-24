@@ -3,12 +3,15 @@ import './styles.scss';
 import FormInput from './../Forms/FormInput';
 import Button from './../Forms/Button';
 
+import {auth,handleUserProfile} from './../../firebase/utils';
+
 
 const initialState  = {
     displayName : '',
     email: '',
     password : '',
-    confirmPassword : ''
+    confirmPassword : '',
+    errors : []
 }
 
 class Signup extends Component{
@@ -29,14 +32,43 @@ class Signup extends Component{
             [name] : value
         });
     }
+
+    handleFormSubmit = async event => {
+        event.preventDefault();
+        const {displayName,email,confirmPassword,password,errors} =this.state;
+
+        if(password !== confirmPassword){
+            const err = ['Password Dont match'];
+            this.setState({
+                errors :err
+            })
+            return;
+
+        }
+    }
     render(){
 
-        const {displayName,email,password,confirmPassword} = this.state;
+        const {displayName,email,password,confirmPassword,errors} = this.state;
         return(
             <div className='signup'>
-                <div className='wrap'>
+                <div className='formwrap'>
                     <h2>SignUp</h2>
-                    <form>
+
+                    {errors.length > 0 && (
+                        <ul>
+                            {errors.map((err,index)=> {
+                                return(
+                                    <li key={index}>
+                                        {err}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    )}
+                    <div class='wrap'>
+
+                   
+                    <form onSubmit={this.handleFormSubmit}>
                         <FormInput 
                         type='text'
                         name = 'displayName'
@@ -75,6 +107,7 @@ class Signup extends Component{
                       </Button>
                         
                     </form>
+                    </div>
                 </div>
             </div>
         )
