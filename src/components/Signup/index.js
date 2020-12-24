@@ -35,15 +35,26 @@ class Signup extends Component{
 
     handleFormSubmit = async event => {
         event.preventDefault();
-        const {displayName,email,confirmPassword,password,errors} =this.state;
+        const {displayName,email,confirmPassword,password} =this.state;
 
         if(password !== confirmPassword){
             const err = ['Password Dont match'];
             this.setState({
-                errors :err
+                errors : err
             })
             return;
 
+        }
+
+        try{
+           const {user} = await auth.createUserWithEmailAndPassword(email,password);
+           await handleUserProfile(user,{displayName});
+
+           this.setState({
+               ...initialState
+           })
+        }catch{
+            // console.log(err)
         }
     }
     render(){
